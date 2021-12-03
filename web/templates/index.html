@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <title>Ladusing Pipel</title>
+    <link rel="icon" href="static/images/ico.png">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600|Montserrat:300,300i,400,400i,500,500i,600,600i,700|Ubuntu:300,300i,400,400i,500,500i&display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+
+        <!--Header Start-->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="">Ladusing<span>Pipel</span></a>
+                </div>
+    
+                <div class="trigger-main">
+                    <a href="javascript:void(0);" class="ham-burger">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+
+                <div class="navbar">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">Upload</a></li>
+                        <li><a href="#services">Team</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--Header End-->
+    
+        <!--Home Start-->
+        <section class="home" id="home">
+            <div class="container">
+                <div class="home-text">
+                    <h1>
+                        Hello, Welcome to our website <br><br>
+                        In this website we make an application with open cv and web flask<br>
+                        That use to detection traffic jam
+                    </h1>
+                    <!-- <h3>Web-Developer</h3> -->
+    
+                </div>
+            </div>
+        </section>
+        <!--Home End-->
+
+        <!--upload Start-->
+        <section class="about" id="about">
+            <div class="container-upload">
+                <h2 class="title">Upload</h2>
+                <form action = "{{url_for('deklarasi')}}" method = "POST">
+                    <input class="upload-box" type = "file" name = "file" />
+                    <br>
+                    <input class="btn-submit" type = "submit" value = "Upload"/>
+                </form>
+                <!--input type="file" class="upload-box"/>
+                <br>
+                <input class ="btn-submit" type="submit" value = "Upload" /-->
+            </div>
+        <!--upload End-->
+            <div class="container-video">
+                <center>
+                    <video width="960" height="720" controls>
+                        <source src="static/footage/cars2.mp4" type="video/mp4">
+                    </video>
+                </center>
+            </div>
+        </section>
+
+        <!--team Start-->
+        <section class="services" id="services">
+                <h2 class="title" >Our Team</h2>
+                <h2 align="center">Members:</h2>
+                <div class="services-content">
+                    <div class="card">
+                        <div class="box">
+                            <div class="icon">
+                                <span> <img src="static/images/profile-1.png" alt="" srcset=""></span>
+                            </div>
+                            <h3>TRIAS WIJAKSONO</h3>
+                            <h3>19102288</h3>
+                            <p>IF-07L
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="box">
+                            <div class="icon">
+                                <span> <img src="static/images/profile-2.png" alt="" srcset=""></span>
+                            </div>
+                            <h3>ISHMAT AZIZ RAMADHAN</h3>
+                            <h3>19102205</h3>
+                            <p>IF-07L
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="box">
+                            <div class="icon">
+                                <span> <img src="static/images/profile-3.png" alt="" srcset=""></span>
+                            </div>
+                            <h3>DIMAS DWI PRIYONO</h3>
+                            <h3>19102187</h3>
+                            <p>IF-07L
+                            </p>
+                        </div>
+                    </div>
+            </div>
+    
+        </section>
+        <!--team End-->
+
+    <!--Footer Start-->
+    <footer>
+        <div class="footer-content">
+            <h1>© 2021 Ladusing Pipel | All Rights Reserved</h1>
+        </div>
+    </footer>
+    <!--Footer End-->
+
+    <!--jquery code-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var bottom = $("header").outerHeight();
+            var header = $("header").offset().top + bottom;
+
+            $(window).scroll(function () {
+
+                //header fixed only when window width greater than 991px
+                if ($(window).width() > 991) {
+
+                    if ($(window).scrollTop() >= header) {
+                        $("header").addClass("sticky")
+                    }
+                    else {
+                        $("header").removeClass("sticky")
+                    }
+                }
+            })
+
+            //navbar active link
+
+            $(".navbar ul li a").click(function () {
+
+                $(".navbar ul li a").removeClass("active")
+                $(this).addClass("active");
+            })
+
+            $(".ham-burger").click(function () {
+                $(this).toggleClass("active")
+                $(".navbar").toggleClass("open");
+            })
+
+        })
+    </script>
+    <!--jquery code-->
+
+    <!--Font Awesome Icons-->
+    <script src="https://kit.fontawesome.com/8fc2c4f809.js" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
